@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Track Display</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Poppins', sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            height: 100vh;
+            margin: 0;
+            background-color: #121212;
+            color: #ffffff;
+            text-align: center;
+        }
+        h2 {
+            margin: 20px 0;
+        }
+        ul {
+            list-style-type: none;
+            padding: 0;
+        }
+        li {
+            margin: 10px 0;
+        }
+        select, input[type="submit"] {
+            padding: 10px;
+            font-size: 16px;
+            margin: 10px 0;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        select {
+            background-color: #1db954;
+            color: white;
+        }
+        input[type="submit"] {
+            background-color: #1ed760;
+            color: white;
+        }
+        footer {
+            margin-top: 20px;
+            font-size: 12px;
+            color: #b3b3b3;
+        }
+    </style>
+</head>
+<body>
+    <h2>Tracks in Selected Playlist</h2>
+    <ul>
+        {% for track in tracks %}
+            <li>{{ track['name'] }} by {{ track['artists'][0]['name'] }}</li>
+        {% endfor %}
+    </ul>
+
+    <h2>Want a playlist based on the mood? Click below!</h2>
+    <form method="POST" action="{{ url_for('create_playlist') }}">
+        <input type="hidden" name="selected_playlist_id" value="{{ selected_playlist_id }}">
+        <select name="mood">
+            <option value="happy">Happy</option>
+            <option value="sad">Sad</option>
+            <option value="relaxed">Relaxed</option>
+        </select>
+        <input type="submit" value="Create Mood Playlist">
+    </form>
+    
+    <footer>
+        <p>Made by Ameya Bhagat</p>
+    </footer>
+</body>
+</html>
