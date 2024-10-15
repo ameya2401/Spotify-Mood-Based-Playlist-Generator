@@ -17,6 +17,3 @@ A Python application that generates personalized playlists based on user-selecte
 - **Spotipy**: Python client for the Spotify Web API
 - **HTML/CSS**: For building the user interface
 
-## 🔗 Links
-[![linkedin](https://img.shields.io/badge/linkedin-0A66C2?style=for-the-badge&logo=linkedin&logoColor=white)](www.linkedin.com/in/ameyabhagat24)
-
